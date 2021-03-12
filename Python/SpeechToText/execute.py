@@ -15,7 +15,7 @@ def callback(Recognizer, audio):
                 sound(2000)
                 audio = r.listen(source)
 
-            final = r.recognize_google(audio, language = 'ru-RU').lower() + " "
+            final = r.recognize_google(audio, language = 'ru-RU').lower() + " " # добавить пробел после распознанной фразы
             print("[Log] Речь распознана: " + final)
             copy(final)
         else: print("[Log] Фраза не начата со слова 'погнали'")
@@ -40,12 +40,13 @@ def copy(text):
 # реализуем нажатие комбинации клавишь ctrl + v
 def paste():
     try:
-        keyboard.press_and_release('ctrl+v' ) 
+        keyboard.press_and_release('ctrl+v') 
         print("[Log] Текст успешно вставлен!")
     except:
         print("[Log] Ошибка вставки текста!")
     pass
 
+# реализуем пищалку
 def sound(herz):
     try:
         frequency = herz # задаем частоту сигнала
@@ -61,7 +62,7 @@ m = sr.Microphone()
 
 # параметры для настройки
 r.pause_threshold = 0.8 # параметр времени молчания для окончания фразы
-r.energy_threshold = 150 # параметр отвечающий за порог отличия речи от фона
+r.energy_threshold = 150 # параметр отвечающий за порог отличия речи от фона (надо разобраться - не понятно)
 
 # настраиваем обработку белых шумов
 with m as source:
