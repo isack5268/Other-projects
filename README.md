@@ -1,4 +1,4 @@
-# There will be some side projects, but no less interesting
+# Other projects
 
 # Python
 1. SpeechToText
